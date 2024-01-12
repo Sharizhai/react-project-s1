@@ -111,7 +111,7 @@ const InformationsField = () => {
 
                 </div>
                 <p style={{color: "red", fontSize: "10px"}}>Champ requis</p> 
-            </div>
+            </div> 
         </form>
         </>
     );
