@@ -4,7 +4,10 @@ import DropdownComp from "./DropdownComp";
 
 const OfferDetails = () => {
     const [selectedButtons, setSelectedButtons] = useState(Array(15).fill(false));
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedBrand, setSelectedBrand] = useState(null);
+    const [selectedModelYear, setSelectedModelYear] = useState(null);
+    const [selectedMileage, setSelectedMileage] = useState(null);
+    const [selectedHorsePower, setSelectedHorsePower] = useState(null);
 
     const handleButtonSelected = (index) => {
         setSelectedButtons((prevSelectedButtons) => {
@@ -15,15 +18,30 @@ const OfferDetails = () => {
     });
   };
 
-  const handleDropdownChange = (e) => {
-    setSelectedOption(e.target.value);
-  };
+  const handleDropdownChange = (title, value) => {
+    switch (title) {
+        case "Marque":
+            setSelectedBrand(value);
+            break;
+        case "Année-Modèle":
+            setSelectedModelYear(value);
+            break;
+        case "Kilométrage":
+            setSelectedMileage(value);
+            break;
+        case "Puissance fiscale":
+            setSelectedHorsePower(value);
+            break;
+        default:
+            break;
+    }
+};
 
   const brandOptions = [
-    { value: "0", label: "" },
-    { value: "1", label: "Mustang" },
-    { value: "2", label: "Cadillac" },
-    { value: "3", label: "Chevrolet" },
+    { value: "", label: "" },
+    { value: "0", label: "Mustang" },
+    { value: "1", label: "Cadillac" },
+    { value: "2", label: "Chevrolet" },
   ];
 
   const modelYear = [
@@ -67,16 +85,16 @@ const OfferDetails = () => {
 
         <div style={{display: "flex", flexDirection: "row"}}>
         <DropdownComp title="Marque" options={brandOptions} 
-                  onChange={handleDropdownChange} value={selectedOption} />
+                  onChange={(value) => handleDropdownChange("Marque", value={selectedBrand})} />
         <DropdownComp title="Année-Modèle" options={modelYear} 
-                  onChange={handleDropdownChange} value={selectedOption} />                    
+                  onChange={(value) => handleDropdownChange("Année-Modèle", value={selectedModelYear})}/>                    
         </div>
 
         <div style={{display: "flex", flexDirection: "row"}}>
         <DropdownComp title="Kilométrage" options={mileage} 
-                  onChange={handleDropdownChange} value={selectedOption} />  
+                  onChange={(value) => handleDropdownChange("Kilométrage", value={selectedMileage})}/>  
         <DropdownComp title="Puissance fiscale" options={horsePower} 
-                  onChange={handleDropdownChange} value={selectedOption} />  
+                  onChange={(value) => handleDropdownChange("Puissance fiscale", value={selectedHorsePower})}/>  
         </div>
 
         <div>

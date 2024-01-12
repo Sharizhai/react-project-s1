@@ -2,6 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DropdownComp = ({title, options, onChange, value}) => {
+
+  const handleChange = (e) => {
+    if (onChange) {
+      onChange(e.target.value);
+    }
+  };
+
   return (
     <>
         <div>
