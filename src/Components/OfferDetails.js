@@ -82,6 +82,7 @@ const OfferDetails = () => {
             <h3>Détails de l'annonce</h3>
             <p>Ajoutez plus de détails sur votre annonce pour un maximum de visibilité</p>
         </div>
+        <br />
 
         <div style={{display: "flex", flexDirection: "row"}}>
         <DropdownComp title="Marque" options={brandOptions} 

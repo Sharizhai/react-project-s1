@@ -14,11 +14,60 @@ const InformationsField = () => {
         });
     };
 
+    const [informationsData, setInformationsData] = useState({
+        price: 0, 
+        offerTitle: "", 
+        offerPrecisions: "",
+    });
+
+    const handleInformationsData = e => {
+        setInformationsData(prevState => ({
+            ...prevState, 
+            [e.target.name]: e.target.value
+        }));
+    };
+
     return (
         <>
         <form>
             <h4>Informations de l'annonce</h4>
 
+            <div>
+                <label>Prix</label>
+                <br />
+                <input type="number"
+                       name="price" 
+                       value={informationsData.price} 
+                       onChange={handleInformationsData}/>
+            <br />
+            <br />
+            </div>
+
+            <div>
+                <label>Titre de votre annonce</label>
+                <br />
+                <input name="offerTitle" 
+                       value={informationsData.offerTitle} 
+                       onChange={handleInformationsData}
+                       style={{width: "400px"}}/>
+            <br />
+            <br />
+            </div>
+
+            <div>
+                <label>Description</label>
+                <br />
+                <textarea name="offerPrecisions" 
+                          value={informationsData.offerPrecisions} 
+                          onChange={handleInformationsData}
+                          placeholder="Donnez des précisions sur votre voiture"
+                          rows={10}
+                          style={{width: "400px"}}/>
+            <br />
+            <br />
+            </div>
+
+            <br />
             <div>
                 <h4>Plus de détails</h4>
                 <p>Ajoutez des précisions</p>
@@ -34,6 +83,8 @@ const InformationsField = () => {
                             borderColor={selectedButtons[3] ? "#89d8e0" : "black"}/>
                     <ButtonComp onClick={() => handleButtonSelected(0)} label="Toit ouvrant" type="button"
                             borderColor={selectedButtons[4] ? "#89d8e0" : "black"}/>
+                </div>
+                <div>
                     <ButtonComp onClick={() => handleButtonSelected(0)} label="Sièges cuir" type="button"
                             borderColor={selectedButtons[5] ? "#89d8e0" : "black"}/>
                     <ButtonComp onClick={() => handleButtonSelected(0)} label="Radar de recul" type="button"
@@ -46,6 +97,7 @@ const InformationsField = () => {
                             borderColor={selectedButtons[9] ? "#89d8e0" : "black"}/>
                     <ButtonComp onClick={() => handleButtonSelected(0)} label="ESP" type="button"
                             borderColor={selectedButtons[10] ? "#89d8e0" : "black"}/>   
+
                 </div>
             </div>
         </form>
@@ -53,4 +105,4 @@ const InformationsField = () => {
     );
 };
 
-export default InformationsField;
+export default InformationsField; 
