@@ -1,12 +1,13 @@
-import OfferDetails from "./Components/OfferDetails";
-import InformationsField from "./Components/InformationsField";
+import { RouterProvider } from "react-router-dom";
+import HomePage from "./routing/HomePage";
+import router from "./routing/Routes";
 
 const App = () => {
     return (
         <>
-            <h1>Hello world</h1>
-            <InformationsField />
-            <OfferDetails />
+            <RouterProvider router = {router}>
+                <HomePage />
+            </RouterProvider>
         </>
     )
 };
