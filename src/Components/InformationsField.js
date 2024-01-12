@@ -15,7 +15,7 @@ const InformationsField = () => {
     };
 
     const [informationsData, setInformationsData] = useState({
-        price: 0, 
+        price: "", 
         offerTitle: "", 
         offerPrecisions: "",
     });
@@ -24,7 +24,7 @@ const InformationsField = () => {
         const inputValue = e.target.value;
 
         if (!/^\d+$/.test(inputValue)) {
-            alert("Seuls les chiffres sont autorisé");
+            alert("Seuls les chiffres sont autorisés");
             return;
         }
 
@@ -45,15 +45,13 @@ const InformationsField = () => {
     return (
         <>
         <form>
-            <h4>Informations de l'annonce</h4>
-
             <div>
                 <label>Prix</label>
                 <br />
                 <input name="price" 
                        value={informationsData.price} 
                        onChange={handlePriceChange}/>
-            <br />
+            <p style={{color: "red", fontSize: "10px"}}>Champ requis</p> 
             <br />
             </div>
 
@@ -63,8 +61,8 @@ const InformationsField = () => {
                 <input name="offerTitle" 
                        value={informationsData.offerTitle} 
                        onChange={handleInformationsData}
-                       style={{width: "400px"}}/>
-            <br />
+                       style={{width: "400px"}}/> 
+            <p style={{color: "red", fontSize: "10px"}}>Champ requis</p> 
             <br />
             </div>
 
@@ -77,14 +75,13 @@ const InformationsField = () => {
                           placeholder="Donnez des précisions sur votre voiture"
                           rows={20}
                           style={{width: "400px"}}/>
-            <br />
+            <p style={{color: "red", fontSize: "10px"}}>Champ requis</p> 
             <br />
             </div>
 
             <br />
             <div>
                 <h4>Plus de détails</h4>
-                <p>Ajoutez des précisions</p>
 
                 <div style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
                     <ButtonComp onClick={() => handleButtonSelected(0)} label="Jantes aluminium" type="button"
@@ -113,6 +110,7 @@ const InformationsField = () => {
                             borderColor={selectedButtons[10] ? "#89d8e0" : "black"}/>   
 
                 </div>
+                <p style={{color: "red", fontSize: "10px"}}>Champ requis</p> 
             </div>
         </form>
         </>

@@ -15,10 +15,12 @@ const OfferCreationPage = () => {
             <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
                 <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
                     <OfferDetails />
+                    <div style={{margin: "50px"}} />
                     <InformationsField />
                 </div>
             </div>
 
+            <br/>
             <br/>
             <br/>
 
