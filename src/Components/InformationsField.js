@@ -20,6 +20,21 @@ const InformationsField = () => {
         offerPrecisions: "",
     });
 
+    const handlePriceChange = (e) => {
+        const inputValue = e.target.value;
+
+        if (!/^\d+$/.test(inputValue)) {
+            alert("Seuls les chiffres sont autorisé");
+            return;
+        }
+
+        const sanitizedValue = inputValue.replace(/\D/g, '');
+        setInformationsData((prevState) => ({
+            ...prevState,
+            price: sanitizedValue,
+        }));
+    };
+
     const handleInformationsData = e => {
         setInformationsData(prevState => ({
             ...prevState, 
@@ -35,10 +50,9 @@ const InformationsField = () => {
             <div>
                 <label>Prix</label>
                 <br />
-                <input type="number"
-                       name="price" 
+                <input name="price" 
                        value={informationsData.price} 
-                       onChange={handleInformationsData}/>
+                       onChange={handlePriceChange}/>
             <br />
             <br />
             </div>
@@ -61,7 +75,7 @@ const InformationsField = () => {
                           value={informationsData.offerPrecisions} 
                           onChange={handleInformationsData}
                           placeholder="Donnez des précisions sur votre voiture"
-                          rows={10}
+                          rows={20}
                           style={{width: "400px"}}/>
             <br />
             <br />
@@ -75,27 +89,27 @@ const InformationsField = () => {
                 <div style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
                     <ButtonComp onClick={() => handleButtonSelected(0)} label="Jantes aluminium" type="button"
                             borderColor={selectedButtons[0] ? "#89d8e0" : "black"}/>
-                    <ButtonComp onClick={() => handleButtonSelected(0)} label="Airbags" type="button"
+                    <ButtonComp onClick={() => handleButtonSelected(1)} label="Airbags" type="button"
                             borderColor={selectedButtons[1] ? "#89d8e0" : "black"}/>
-                    <ButtonComp onClick={() => handleButtonSelected(0)} label="Climatisation" type="button"
+                    <ButtonComp onClick={() => handleButtonSelected(2)} label="Climatisation" type="button"
                             borderColor={selectedButtons[2] ? "#89d8e0" : "black"}/>
-                    <ButtonComp onClick={() => handleButtonSelected(0)} label="Système de navigation" type="button"
+                    <ButtonComp onClick={() => handleButtonSelected(3)} label="Système de navigation" type="button"
                             borderColor={selectedButtons[3] ? "#89d8e0" : "black"}/>
-                    <ButtonComp onClick={() => handleButtonSelected(0)} label="Toit ouvrant" type="button"
+                    <ButtonComp onClick={() => handleButtonSelected(4)} label="Toit ouvrant" type="button"
                             borderColor={selectedButtons[4] ? "#89d8e0" : "black"}/>
                 </div>
                 <div>
-                    <ButtonComp onClick={() => handleButtonSelected(0)} label="Sièges cuir" type="button"
+                    <ButtonComp onClick={() => handleButtonSelected(5)} label="Sièges cuir" type="button"
                             borderColor={selectedButtons[5] ? "#89d8e0" : "black"}/>
-                    <ButtonComp onClick={() => handleButtonSelected(0)} label="Radar de recul" type="button"
+                    <ButtonComp onClick={() => handleButtonSelected(6)} label="Radar de recul" type="button"
                             borderColor={selectedButtons[6] ? "#89d8e0" : "black"}/>
-                    <ButtonComp onClick={() => handleButtonSelected(0)} label="Caméra de recul" type="button"
+                    <ButtonComp onClick={() => handleButtonSelected(7)} label="Caméra de recul" type="button"
                             borderColor={selectedButtons[7] ? "#89d8e0" : "black"}/>
-                    <ButtonComp onClick={() => handleButtonSelected(0)} label="Vitres électriques" type="button"
+                    <ButtonComp onClick={() => handleButtonSelected(8)} label="Vitres électriques" type="button"
                             borderColor={selectedButtons[8] ? "#89d8e0" : "black"}/>
-                    <ButtonComp onClick={() => handleButtonSelected(0)} label="ABS" type="button"
+                    <ButtonComp onClick={() => handleButtonSelected(9)} label="ABS" type="button"
                             borderColor={selectedButtons[9] ? "#89d8e0" : "black"}/>
-                    <ButtonComp onClick={() => handleButtonSelected(0)} label="ESP" type="button"
+                    <ButtonComp onClick={() => handleButtonSelected(10)} label="ESP" type="button"
                             borderColor={selectedButtons[10] ? "#89d8e0" : "black"}/>   
 
                 </div>

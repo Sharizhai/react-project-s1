@@ -3,7 +3,7 @@ import ButtonComp from "./ButtonComp";
 import DropdownComp from "./DropdownComp";
 
 const OfferDetails = () => {
-    const [selectedButtons, setSelectedButtons] = useState(Array(15).fill(false));
+    const [selectedButtons, setSelectedButtons] = useState(Array(22).fill(false));
     const [selectedBrand, setSelectedBrand] = useState(null);
     const [selectedModelYear, setSelectedModelYear] = useState(null);
     const [selectedMileage, setSelectedMileage] = useState(null);
@@ -151,6 +151,24 @@ const OfferDetails = () => {
                             borderColor={selectedButtons[16] ? "#89d8e0" : "black"}/>
                 <ButtonComp onClick={() => handleButtonSelected(17)} label="Importée neuve" type="button"
                             borderColor={selectedButtons[17] ? "#89d8e0" : "black"}/>
+        <p style={{color: "red", fontSize: "10px"}}>Champ requis</p>
+        </div>
+
+        <div>
+            <h4>Nombre de portes</h4>
+                <ButtonComp onClick={() => handleButtonSelected(18)} label="3" type="button"
+                            borderColor={selectedButtons[18] ? "#89d8e0" : "black"}/>
+                <ButtonComp onClick={() => handleButtonSelected(19)} label="5" type="button"
+                            borderColor={selectedButtons[19] ? "#89d8e0" : "black"}/>
+        <p style={{color: "red", fontSize: "10px"}}>Champ requis</p>
+        </div>
+
+        <div>
+            <h4>Première main</h4>
+                <ButtonComp onClick={() => handleButtonSelected(20)} label="Oui" type="button"
+                            borderColor={selectedButtons[20] ? "#89d8e0" : "black"}/>
+                <ButtonComp onClick={() => handleButtonSelected(21)} label="Non" type="button"
+                            borderColor={selectedButtons[21] ? "#89d8e0" : "black"}/>
         <p style={{color: "red", fontSize: "10px"}}>Champ requis</p>
         </div>
       </form>
